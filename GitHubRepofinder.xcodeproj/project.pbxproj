@@ -15,6 +15,16 @@
 		52348E09258241C6006DBE87 /* GitHubRepofinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52348E08258241C6006DBE87 /* GitHubRepofinderUITests.swift */; };
 		52348E322582482B006DBE87 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52348E312582482A006DBE87 /* MainViewController.swift */; };
 		52348E372582484D006DBE87 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52348E362582484D006DBE87 /* DetailsViewController.swift */; };
+		523C87E62582E3E200A56998 /* ARSLineProgressHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523C87DC2582E3E200A56998 /* ARSLineProgressHelpers.swift */; };
+		523C87E72582E3E200A56998 /* ARSLineProgressTypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523C87DD2582E3E200A56998 /* ARSLineProgressTypeAliases.swift */; };
+		523C87E82582E3E200A56998 /* ARSInfiniteLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523C87DE2582E3E200A56998 /* ARSInfiniteLoader.swift */; };
+		523C87E92582E3E200A56998 /* ARSLineProgressConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523C87DF2582E3E200A56998 /* ARSLineProgressConstants.swift */; };
+		523C87EA2582E3E200A56998 /* ARSLineProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523C87E02582E3E200A56998 /* ARSLineProgress.swift */; };
+		523C87EB2582E3E200A56998 /* ARSLineProgressExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523C87E12582E3E200A56998 /* ARSLineProgressExtensions.swift */; };
+		523C87EC2582E3E200A56998 /* ARSLineProgressCustomization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523C87E22582E3E200A56998 /* ARSLineProgressCustomization.swift */; };
+		523C87ED2582E3E200A56998 /* ARSStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523C87E32582E3E200A56998 /* ARSStatus.swift */; };
+		523C87EE2582E3E200A56998 /* ARSProgressLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523C87E42582E3E200A56998 /* ARSProgressLoader.swift */; };
+		523C87EF2582E3E200A56998 /* ARSLineProgressProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523C87E52582E3E200A56998 /* ARSLineProgressProtocols.swift */; };
 		5278FAF4258265F2000B2313 /* ExtenstionUINavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5278FAF3258265F2000B2313 /* ExtenstionUINavController.swift */; };
 		52AE57BE25829F9F004F8DD7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AE57BD25829F9F004F8DD7 /* Constants.swift */; };
 		52AE57C62582AB49004F8DD7 /* ExtensionLettersSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AE57C52582AB49004F8DD7 /* ExtensionLettersSpacing.swift */; };
@@ -63,6 +73,16 @@
 		52348E0A258241C6006DBE87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52348E312582482A006DBE87 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		52348E362582484D006DBE87 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		523C87DC2582E3E200A56998 /* ARSLineProgressHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSLineProgressHelpers.swift; sourceTree = "<group>"; };
+		523C87DD2582E3E200A56998 /* ARSLineProgressTypeAliases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSLineProgressTypeAliases.swift; sourceTree = "<group>"; };
+		523C87DE2582E3E200A56998 /* ARSInfiniteLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSInfiniteLoader.swift; sourceTree = "<group>"; };
+		523C87DF2582E3E200A56998 /* ARSLineProgressConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSLineProgressConstants.swift; sourceTree = "<group>"; };
+		523C87E02582E3E200A56998 /* ARSLineProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSLineProgress.swift; sourceTree = "<group>"; };
+		523C87E12582E3E200A56998 /* ARSLineProgressExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSLineProgressExtensions.swift; sourceTree = "<group>"; };
+		523C87E22582E3E200A56998 /* ARSLineProgressCustomization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSLineProgressCustomization.swift; sourceTree = "<group>"; };
+		523C87E32582E3E200A56998 /* ARSStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSStatus.swift; sourceTree = "<group>"; };
+		523C87E42582E3E200A56998 /* ARSProgressLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSProgressLoader.swift; sourceTree = "<group>"; };
+		523C87E52582E3E200A56998 /* ARSLineProgressProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSLineProgressProtocols.swift; sourceTree = "<group>"; };
 		5278FAF3258265F2000B2313 /* ExtenstionUINavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtenstionUINavController.swift; sourceTree = "<group>"; };
 		52AE57BD25829F9F004F8DD7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		52AE57C52582AB49004F8DD7 /* ExtensionLettersSpacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionLettersSpacing.swift; sourceTree = "<group>"; };
@@ -132,6 +152,7 @@
 				5278FAFD2582902B000B2313 /* Views */,
 				5278FAFE2582903B000B2313 /* Controllers */,
 				5278FAFF25829045000B2313 /* Extensions */,
+				523C87DB2582E3E200A56998 /* Source */,
 				5278FB0025829055000B2313 /* Supporting Files */,
 			);
 			path = GitHubRepofinder;
@@ -153,6 +174,23 @@
 				52348E0A258241C6006DBE87 /* Info.plist */,
 			);
 			path = GitHubRepofinderUITests;
+			sourceTree = "<group>";
+		};
+		523C87DB2582E3E200A56998 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				523C87DC2582E3E200A56998 /* ARSLineProgressHelpers.swift */,
+				523C87DD2582E3E200A56998 /* ARSLineProgressTypeAliases.swift */,
+				523C87DE2582E3E200A56998 /* ARSInfiniteLoader.swift */,
+				523C87DF2582E3E200A56998 /* ARSLineProgressConstants.swift */,
+				523C87E02582E3E200A56998 /* ARSLineProgress.swift */,
+				523C87E12582E3E200A56998 /* ARSLineProgressExtensions.swift */,
+				523C87E22582E3E200A56998 /* ARSLineProgressCustomization.swift */,
+				523C87E32582E3E200A56998 /* ARSStatus.swift */,
+				523C87E42582E3E200A56998 /* ARSProgressLoader.swift */,
+				523C87E52582E3E200A56998 /* ARSLineProgressProtocols.swift */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 		5278FAFC25829009000B2313 /* Models */ = {
@@ -361,14 +399,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				523C87EE2582E3E200A56998 /* ARSProgressLoader.swift in Sources */,
 				52AE57BE25829F9F004F8DD7 /* Constants.swift in Sources */,
+				523C87E92582E3E200A56998 /* ARSLineProgressConstants.swift in Sources */,
 				52AE57CC2582AE72004F8DD7 /* MainCell.swift in Sources */,
+				523C87E72582E3E200A56998 /* ARSLineProgressTypeAliases.swift in Sources */,
+				523C87ED2582E3E200A56998 /* ARSStatus.swift in Sources */,
 				52AE57C62582AB49004F8DD7 /* ExtensionLettersSpacing.swift in Sources */,
+				523C87EF2582E3E200A56998 /* ARSLineProgressProtocols.swift in Sources */,
 				52348E322582482B006DBE87 /* MainViewController.swift in Sources */,
+				523C87EC2582E3E200A56998 /* ARSLineProgressCustomization.swift in Sources */,
 				52348DE7258241C2006DBE87 /* AppDelegate.swift in Sources */,
 				5278FAF4258265F2000B2313 /* ExtenstionUINavController.swift in Sources */,
 				52E9AF082582C28100C86A26 /* GitHubDataModel.swift in Sources */,
+				523C87EB2582E3E200A56998 /* ARSLineProgressExtensions.swift in Sources */,
+				523C87E82582E3E200A56998 /* ARSInfiniteLoader.swift in Sources */,
+				523C87EA2582E3E200A56998 /* ARSLineProgress.swift in Sources */,
 				52348E372582484D006DBE87 /* DetailsViewController.swift in Sources */,
+				523C87E62582E3E200A56998 /* ARSLineProgressHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

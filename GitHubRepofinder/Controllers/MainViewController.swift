@@ -49,8 +49,9 @@ class MainViewController: UIViewController {
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-            
+                
                 self.updateData(json: json)
+                ARSLineProgress.hide()
                 
                 //print("JSON from server response: \(json)")
                 //print(response.request ?? "response reqest issue")
@@ -214,7 +215,7 @@ extension MainViewController: UITableViewDataSource{
             cell.imageAvatar.sd_setImage(with: url) { (downloadedImage, downloadedExeption, cacheType, downloadURL) in
             }
         }
-        
+    
         
         return cell
     }
@@ -245,6 +246,7 @@ extension MainViewController: UISearchBarDelegate {
             present(alert, animated: true, completion: nil)
         }
         else{
+            ARSLineProgress.show()
             let query = searchBar.text!
             userEnteredQuery(query: query)
             
