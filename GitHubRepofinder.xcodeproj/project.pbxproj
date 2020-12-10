@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		52348DE7258241C2006DBE87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52348DE6258241C2006DBE87 /* AppDelegate.swift */; };
-		52348DE9258241C2006DBE87 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52348DE8258241C2006DBE87 /* SceneDelegate.swift */; };
-		52348DEB258241C2006DBE87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52348DEA258241C2006DBE87 /* ViewController.swift */; };
 		52348DEE258241C2006DBE87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52348DEC258241C2006DBE87 /* Main.storyboard */; };
 		52348DF0258241C6006DBE87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52348DEF258241C6006DBE87 /* Assets.xcassets */; };
 		52348DF3258241C6006DBE87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52348DF1258241C6006DBE87 /* LaunchScreen.storyboard */; };
 		52348DFE258241C6006DBE87 /* GitHubRepofinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52348DFD258241C6006DBE87 /* GitHubRepofinderTests.swift */; };
 		52348E09258241C6006DBE87 /* GitHubRepofinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52348E08258241C6006DBE87 /* GitHubRepofinderUITests.swift */; };
+		52348E322582482B006DBE87 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52348E312582482A006DBE87 /* MainViewController.swift */; };
+		52348E372582484D006DBE87 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52348E362582484D006DBE87 /* DetailsViewController.swift */; };
+		5278FAF4258265F2000B2313 /* ExtenstionUINavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5278FAF3258265F2000B2313 /* ExtenstionUINavController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,8 +38,6 @@
 /* Begin PBXFileReference section */
 		52348DE3258241C2006DBE87 /* GitHubRepofinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubRepofinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52348DE6258241C2006DBE87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		52348DE8258241C2006DBE87 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		52348DEA258241C2006DBE87 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		52348DED258241C2006DBE87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		52348DEF258241C6006DBE87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52348DF2258241C6006DBE87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +48,9 @@
 		52348E04258241C6006DBE87 /* GitHubRepofinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitHubRepofinderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52348E08258241C6006DBE87 /* GitHubRepofinderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepofinderUITests.swift; sourceTree = "<group>"; };
 		52348E0A258241C6006DBE87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52348E312582482A006DBE87 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		52348E362582484D006DBE87 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		5278FAF3258265F2000B2313 /* ExtenstionUINavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtenstionUINavController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,12 +102,11 @@
 			isa = PBXGroup;
 			children = (
 				52348DE6258241C2006DBE87 /* AppDelegate.swift */,
-				52348DE8258241C2006DBE87 /* SceneDelegate.swift */,
-				52348DEA258241C2006DBE87 /* ViewController.swift */,
-				52348DEC258241C2006DBE87 /* Main.storyboard */,
-				52348DEF258241C6006DBE87 /* Assets.xcassets */,
-				52348DF1258241C6006DBE87 /* LaunchScreen.storyboard */,
-				52348DF4258241C6006DBE87 /* Info.plist */,
+				5278FAFC25829009000B2313 /* Models */,
+				5278FAFD2582902B000B2313 /* Views */,
+				5278FAFE2582903B000B2313 /* Controllers */,
+				5278FAFF25829045000B2313 /* Extenstions */,
+				5278FB0025829055000B2313 /* Supporting Files */,
 			);
 			path = GitHubRepofinder;
 			sourceTree = "<group>";
@@ -126,6 +127,48 @@
 				52348E0A258241C6006DBE87 /* Info.plist */,
 			);
 			path = GitHubRepofinderUITests;
+			sourceTree = "<group>";
+		};
+		5278FAFC25829009000B2313 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5278FAFD2582902B000B2313 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				52348DEC258241C2006DBE87 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5278FAFE2582903B000B2313 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				52348E312582482A006DBE87 /* MainViewController.swift */,
+				52348E362582484D006DBE87 /* DetailsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		5278FAFF25829045000B2313 /* Extenstions */ = {
+			isa = PBXGroup;
+			children = (
+				5278FAF3258265F2000B2313 /* ExtenstionUINavController.swift */,
+			);
+			path = Extenstions;
+			sourceTree = "<group>";
+		};
+		5278FB0025829055000B2313 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				52348DF1258241C6006DBE87 /* LaunchScreen.storyboard */,
+				52348DEF258241C6006DBE87 /* Assets.xcassets */,
+				52348DF4258241C6006DBE87 /* Info.plist */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,9 +301,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52348DEB258241C2006DBE87 /* ViewController.swift in Sources */,
+				52348E322582482B006DBE87 /* MainViewController.swift in Sources */,
 				52348DE7258241C2006DBE87 /* AppDelegate.swift in Sources */,
-				52348DE9258241C2006DBE87 /* SceneDelegate.swift in Sources */,
+				5278FAF4258265F2000B2313 /* ExtenstionUINavController.swift in Sources */,
+				52348E372582484D006DBE87 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,7 +410,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -421,7 +465,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -438,7 +482,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UADL7D88KK;
-				INFOPLIST_FILE = GitHubRepofinder/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/GitHubRepofinder/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -457,7 +502,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UADL7D88KK;
-				INFOPLIST_FILE = GitHubRepofinder/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/GitHubRepofinder/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
