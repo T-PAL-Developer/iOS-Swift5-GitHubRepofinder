@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,15 +18,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //print("LAUNCHED: didFinishLaunchingWithOptions - APP GETS LOADED UP, BEFORE INITIAL VIEW")
         // Override point for customization after application launch. /before viewDidLoad
         
-        // MARK: - Fonts Check
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.enableAutoToolbar = false
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         
-            
-            for family: String in UIFont.familyNames.sorted() {
-                print("\(family)")
-                for names: String in UIFont.fontNames(forFamilyName: family) {
-                    print("== \(names)")
-                }
-            }
+        
+//        // MARK: - Fonts Check
+//
+//            for family: String in UIFont.familyNames.sorted() {
+//                print("\(family)")
+//                for names: String in UIFont.fontNames(forFamilyName: family) {
+//                    print("== \(names)")
+//                }
+//            }
     
         
         

@@ -17,7 +17,7 @@ struct Constants {
     }
     
     struct Fonts {
-        static let fontSFDisplayBold = "SFPro-Bold"
+        static let fontSFDisplayBold = "SFProDisplay-Bold"
     }
     
 }

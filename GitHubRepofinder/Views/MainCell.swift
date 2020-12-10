@@ -21,6 +21,7 @@ class MainCell: UITableViewCell {
         labelTitle.addTextSpacing(spacing: -0.41)
         labelStars.addTextSpacing(spacing: -0.41)
         cellView.layer.cornerRadius = cellView.frame.size.height / 5
+        imageAvatar.layer.cornerRadius = imageAvatar.frame.size.height / 5
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

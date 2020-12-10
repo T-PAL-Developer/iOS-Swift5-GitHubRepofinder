@@ -6,44 +6,131 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+import SDWebImage
 
 class MainViewController: UIViewController {
-
-
+    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var labelRepositories: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    var githubDataArray: [GitHubDataModel] = [GitHubDataModel]()
+    var cellIndex = 0
+    
+    let GITHUB_URL = "https://api.github.com/search/repositories"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        viewConfiguration()
+        
+        ///search bar config
         searchBar.backgroundImage = UIImage()
+        searchBar.delegate = self
+        
+        viewConfiguration()
+        tableViewConfiguration()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
-           super.viewDidAppear(animated)
-           
+        super.viewDidAppear(animated)
+        
         viewConfiguration()
-         
-       }
+        
+    }
     
+    //MARK: - Networking
     
+    func getData(url: String, parameters: [String : String]){
+        
+        AF.request(url, method: .get, parameters: parameters).responseJSON {
+            response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+            
+                self.updateData(json: json)
+                
+                //print("JSON from server response: \(json)")
+                //print(response.request ?? "response reqest issue")
+                
+                break
+            case .failure(let error):
+                print("Connection Issues")
+                print(error)
+                self.labelRepositories.text = "Connection Issue"
+            }
+        }
+        
+    }
     
+    //MARK: - JSON Parsing
     
-   
+    func updateData(json: JSON){
+        
+        githubDataArray.removeAll()
+        
+        if json["incomplete_results"].bool == false {
+            
+            
+            let resultArray = json["items"]
+            
+            for index in resultArray.arrayValue{
+                
+                let item = GitHubDataModel()
+                
+                item.repoName = index["name"].stringValue
+                item.repoOwnerName = index["owner"]["login"].stringValue
+                item.pictureOwner = index["owner"]["avatar_url"].stringValue
+                item.numberOfStars = index["stargazers_count"].stringValue
+                item.repoURL = index["html_url"].stringValue
+                item.repoCommitsPath = "https://api.github.com/repos/\(index["owner"]["login"].stringValue)/\(index["name"].stringValue)/commits"
+                
+                //print(item.repoCommitsPath)
+                githubDataArray.append(item)
+                
+            }
+            
+            
+            if json["total_count"].int == 0 {
+                labelRepositories.text = "0 results"
+            } else {
+                labelRepositories.text = "Repositories result:"
+            }
+            
+            
+            updateUIWithData()
+            for x in 0..<githubDataArray.count {
+                print(x, "=", githubDataArray[x].repoName!) }
+            
+        }
+        else if json["incomplete_results"].bool == true {
+            print(json)
+            
+            labelRepositories.text = "Incomplete result"
+        }
+        else {
+            labelRepositories.text = "unknow problem, ask developer :("
+            print(json)
+        }
+    }
+    
+    //MARK: - UI Updates
+    
+    func updateUIWithData(){
+        
+            self.tableView.reloadData()
 
+    }
     
-    
-    
-    
-
-    
-    
-    
-    
-    
+    //MARK: - searchQuery
+    func userEnteredQuery(query: String) {
+        
+        let params : [String : String] = ["q" : query]
+        getData(url: GITHUB_URL, parameters: params)
+        
+    }
     
     //MARK: - View Configuration
     
@@ -69,7 +156,7 @@ class MainViewController: UIViewController {
             textfield.textColor = UIColor.black
             textfield.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 1)
             textfield.attributedPlaceholder = NSAttributedString(string: textfield.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor : UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 0.1)])
-
+            
         }
         /// set label
         labelRepositories.font = UIFont(name: Constants.Fonts.fontSFDisplayBold, size: 22)
@@ -77,8 +164,6 @@ class MainViewController: UIViewController {
         labelRepositories.textColor = UIColor.black
         ///set table view
         self.tableView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        
-        
     }
     
     /// status bar color change
@@ -88,15 +173,81 @@ class MainViewController: UIViewController {
         } else {
             return .default
         }
+        
+    }
+    
+    //MARK: - TableView Configuration
+    
+    func tableViewConfiguration() {
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(UINib(nibName: Constants.Cells.cellIndentifierMain, bundle: nil), forCellReuseIdentifier: Constants.Cells.cellNibNameMain)
+        self.tableView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
     }
     
     
     
     
-    
-    
- 
 }
 
 
+//MARK: - extension ViewController
 
+// tableView
+extension MainViewController: UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        tableView.keyboardDismissMode = .onDrag
+        return githubDataArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.cellNibNameMain, for: indexPath) as! MainCell
+        
+        cell.labelTitle.text = githubDataArray[indexPath.row].repoName
+        cell.labelStars.text = githubDataArray[indexPath.row].numberOfStars
+        
+        if let icon = githubDataArray[indexPath.row].pictureOwner {
+            
+            let url = URL(string: icon)
+            cell.imageAvatar.sd_setImage(with: url) { (downloadedImage, downloadedExeption, cacheType, downloadURL) in
+            }
+        }
+        
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    }
+    
+}
+
+extension MainViewController: UITableViewDelegate{
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        cellIndex = indexPath.row
+        performSegue(withIdentifier: Constants.segueCell, sender: self)
+        print(indexPath.row)
+    }
+}
+
+// search bar
+extension MainViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        if searchBar.text == "" {
+            
+            let alert = UIAlertController(title: "EMPTY TEXTFILED", message: "Type something inside search bar", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
+        else{
+            let query = searchBar.text!
+            userEnteredQuery(query: query)
+            
+        }
+    }
+}
