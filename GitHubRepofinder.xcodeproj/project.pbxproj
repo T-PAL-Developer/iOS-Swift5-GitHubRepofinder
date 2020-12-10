@@ -16,6 +16,14 @@
 		52348E322582482B006DBE87 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52348E312582482A006DBE87 /* MainViewController.swift */; };
 		52348E372582484D006DBE87 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52348E362582484D006DBE87 /* DetailsViewController.swift */; };
 		5278FAF4258265F2000B2313 /* ExtenstionUINavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5278FAF3258265F2000B2313 /* ExtenstionUINavController.swift */; };
+		52AE57BE25829F9F004F8DD7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AE57BD25829F9F004F8DD7 /* Constants.swift */; };
+		52AE57C62582AB49004F8DD7 /* ExtensionLettersSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AE57C52582AB49004F8DD7 /* ExtensionLettersSpacing.swift */; };
+		52AE57CC2582AE72004F8DD7 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AE57CA2582AE72004F8DD7 /* MainCell.swift */; };
+		52AE57CD2582AE72004F8DD7 /* MainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52AE57CB2582AE72004F8DD7 /* MainCell.xib */; };
+		52AE57D22582B10C004F8DD7 /* SF-Pro-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 52AE57D12582B10C004F8DD7 /* SF-Pro-Text-Semibold.otf */; };
+		52AE57DE2582B204004F8DD7 /* SF-Pro-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 52AE57DC2582B204004F8DD7 /* SF-Pro-Display-Bold.otf */; };
+		52AE57DF2582B204004F8DD7 /* SF-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52AE57DD2582B204004F8DD7 /* SF-Pro.ttf */; };
+		52E9AEE82582BAA800C86A26 /* SF-Pro-Text-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 52E9AEE72582BAA800C86A26 /* SF-Pro-Text-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +59,14 @@
 		52348E312582482A006DBE87 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		52348E362582484D006DBE87 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		5278FAF3258265F2000B2313 /* ExtenstionUINavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtenstionUINavController.swift; sourceTree = "<group>"; };
+		52AE57BD25829F9F004F8DD7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		52AE57C52582AB49004F8DD7 /* ExtensionLettersSpacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionLettersSpacing.swift; sourceTree = "<group>"; };
+		52AE57CA2582AE72004F8DD7 /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
+		52AE57CB2582AE72004F8DD7 /* MainCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainCell.xib; sourceTree = "<group>"; };
+		52AE57D12582B10C004F8DD7 /* SF-Pro-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Semibold.otf"; sourceTree = "<group>"; };
+		52AE57DC2582B204004F8DD7 /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Bold.otf"; sourceTree = "<group>"; };
+		52AE57DD2582B204004F8DD7 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
+		52E9AEE72582BAA800C86A26 /* SF-Pro-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Regular.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +121,7 @@
 				5278FAFC25829009000B2313 /* Models */,
 				5278FAFD2582902B000B2313 /* Views */,
 				5278FAFE2582903B000B2313 /* Controllers */,
-				5278FAFF25829045000B2313 /* Extenstions */,
+				5278FAFF25829045000B2313 /* Extensions */,
 				5278FB0025829055000B2313 /* Supporting Files */,
 			);
 			path = GitHubRepofinder;
@@ -132,6 +148,7 @@
 		5278FAFC25829009000B2313 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				52AE57BD25829F9F004F8DD7 /* Constants.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -140,6 +157,8 @@
 			isa = PBXGroup;
 			children = (
 				52348DEC258241C2006DBE87 /* Main.storyboard */,
+				52AE57CA2582AE72004F8DD7 /* MainCell.swift */,
+				52AE57CB2582AE72004F8DD7 /* MainCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -153,22 +172,35 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		5278FAFF25829045000B2313 /* Extenstions */ = {
+		5278FAFF25829045000B2313 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				5278FAF3258265F2000B2313 /* ExtenstionUINavController.swift */,
+				52AE57C52582AB49004F8DD7 /* ExtensionLettersSpacing.swift */,
 			);
-			path = Extenstions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		5278FB0025829055000B2313 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				52AE57B5258299FA004F8DD7 /* Fonts */,
 				52348DF1258241C6006DBE87 /* LaunchScreen.storyboard */,
 				52348DEF258241C6006DBE87 /* Assets.xcassets */,
 				52348DF4258241C6006DBE87 /* Info.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		52AE57B5258299FA004F8DD7 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				52E9AEE72582BAA800C86A26 /* SF-Pro-Text-Regular.otf */,
+				52AE57DC2582B204004F8DD7 /* SF-Pro-Display-Bold.otf */,
+				52AE57DD2582B204004F8DD7 /* SF-Pro.ttf */,
+				52AE57D12582B10C004F8DD7 /* SF-Pro-Text-Semibold.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,7 +308,12 @@
 			files = (
 				52348DF3258241C6006DBE87 /* LaunchScreen.storyboard in Resources */,
 				52348DF0258241C6006DBE87 /* Assets.xcassets in Resources */,
+				52AE57DE2582B204004F8DD7 /* SF-Pro-Display-Bold.otf in Resources */,
+				52AE57DF2582B204004F8DD7 /* SF-Pro.ttf in Resources */,
+				52AE57CD2582AE72004F8DD7 /* MainCell.xib in Resources */,
 				52348DEE258241C2006DBE87 /* Main.storyboard in Resources */,
+				52E9AEE82582BAA800C86A26 /* SF-Pro-Text-Regular.otf in Resources */,
+				52AE57D22582B10C004F8DD7 /* SF-Pro-Text-Semibold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +338,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52AE57BE25829F9F004F8DD7 /* Constants.swift in Sources */,
+				52AE57CC2582AE72004F8DD7 /* MainCell.swift in Sources */,
+				52AE57C62582AB49004F8DD7 /* ExtensionLettersSpacing.swift in Sources */,
 				52348E322582482B006DBE87 /* MainViewController.swift in Sources */,
 				52348DE7258241C2006DBE87 /* AppDelegate.swift in Sources */,
 				5278FAF4258265F2000B2313 /* ExtenstionUINavController.swift in Sources */,
@@ -491,7 +531,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.t-pal.GitHubRepofinder";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -511,7 +551,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.t-pal.GitHubRepofinder";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

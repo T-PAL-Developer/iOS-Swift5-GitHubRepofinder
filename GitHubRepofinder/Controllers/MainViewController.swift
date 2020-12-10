@@ -10,11 +10,16 @@ import UIKit
 class MainViewController: UIViewController {
 
 
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var labelRepositories: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     
         viewConfiguration()
-        
+        searchBar.backgroundImage = UIImage()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -44,6 +49,7 @@ class MainViewController: UIViewController {
     
     func viewConfiguration() {
         
+        ///set navbar
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.black]
         navigationController?.navigationBar.largeTitleTextAttributes = textAttributes
         navigationController?.navigationBar.titleTextAttributes = textAttributes
@@ -55,6 +61,23 @@ class MainViewController: UIViewController {
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.barStyle = .default
         setNeedsStatusBarAppearanceUpdate()
+        ///set serach bar
+        if #available(iOS 13.0, *) {
+            searchBar.searchTextField.leftView?.tintColor = .gray
+        }
+        if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
+            textfield.textColor = UIColor.black
+            textfield.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 1)
+            textfield.attributedPlaceholder = NSAttributedString(string: textfield.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray ])
+
+        }
+        /// set label
+        labelRepositories.font = UIFont(name: Constants.Fonts.fontSFDisplayBold, size: 22)
+        labelRepositories.addTextSpacing(spacing: 0.35)
+        labelRepositories.textColor = UIColor.black
+        ///set table view
+        self.tableView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        
         
     }
     

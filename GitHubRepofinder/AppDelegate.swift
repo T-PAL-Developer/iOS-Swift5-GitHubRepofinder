@@ -18,6 +18,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //print("LAUNCHED: didFinishLaunchingWithOptions - APP GETS LOADED UP, BEFORE INITIAL VIEW")
         // Override point for customization after application launch. /before viewDidLoad
         
+        // MARK: - Fonts Check
+        
+            
+            for family: String in UIFont.familyNames.sorted() {
+                print("\(family)")
+                for names: String in UIFont.fontNames(forFamilyName: family) {
+                    print("== \(names)")
+                }
+            }
+    
+        
         
         return true
     }

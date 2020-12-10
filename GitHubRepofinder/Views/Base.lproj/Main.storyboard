@@ -8,6 +8,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro-Display-Bold.otf">
+            <string>SFProDisplay-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Search-->
         <scene sceneID="tne-QT-ifu">
@@ -17,28 +22,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4D4-3A-Svg">
-                                <rect key="frame" x="186" y="438" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Whx-fD-ASb">
+                                <rect key="frame" x="8" y="140" width="398" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="W1J-60-hbT">
+                                <rect key="frame" x="0.0" y="270.5" width="414" height="625.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MainCell" id="aBJ-GS-54Y">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aBJ-GS-54Y" id="2zQ-q8-d4d">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repositories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGs-is-CRk">
+                                <rect key="frame" x="20" y="226" width="374" height="26.5"/>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fXB-7w-NTt">
-                                <rect key="frame" x="186" y="489" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="sUV-pJ-pl7" kind="show" id="Jd2-aG-EVu"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="yGs-is-CRk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="Bev-A6-ZEs"/>
+                            <constraint firstAttribute="trailing" secondItem="yGs-is-CRk" secondAttribute="trailing" constant="20" id="Gzj-x5-5Wf"/>
+                            <constraint firstItem="W1J-60-hbT" firstAttribute="top" secondItem="yGs-is-CRk" secondAttribute="bottom" constant="18" id="SMF-oe-HK6"/>
+                            <constraint firstAttribute="trailing" secondItem="Whx-fD-ASb" secondAttribute="trailing" constant="8" id="Um0-WG-kUZ"/>
+                            <constraint firstItem="Whx-fD-ASb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="c41-y4-qYX"/>
+                            <constraint firstItem="Whx-fD-ASb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="eT3-Fg-Jky"/>
+                            <constraint firstAttribute="trailing" secondItem="W1J-60-hbT" secondAttribute="trailing" id="ev6-j2-yLF"/>
+                            <constraint firstItem="W1J-60-hbT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="jVA-Jq-pvv"/>
+                            <constraint firstAttribute="bottom" secondItem="W1J-60-hbT" secondAttribute="bottom" id="qBq-Yw-3co"/>
+                            <constraint firstItem="yGs-is-CRk" firstAttribute="top" secondItem="Whx-fD-ASb" secondAttribute="bottom" constant="30" id="sQK-sD-w2i"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Search" largeTitleDisplayMode="always" id="ycu-le-MYp"/>
                     <connections>
-                        <segue destination="sUV-pJ-pl7" kind="show" id="FfZ-Ff-Bkb"/>
+                        <outlet property="labelRepositories" destination="yGs-is-CRk" id="nz5-BO-S4W"/>
+                        <outlet property="searchBar" destination="Whx-fD-ASb" id="NkV-90-37a"/>
+                        <outlet property="tableView" destination="W1J-60-hbT" id="pXT-9f-JIz"/>
+                        <segue destination="sUV-pJ-pl7" kind="show" identifier="segueToCellDetails" id="FfZ-Ff-Bkb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -88,9 +117,6 @@
             <point key="canvasLocation" x="140.57971014492756" y="128.57142857142856"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="FfZ-Ff-Bkb"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
