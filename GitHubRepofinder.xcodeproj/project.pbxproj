@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -24,6 +24,10 @@
 		52AE57DE2582B204004F8DD7 /* SF-Pro-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 52AE57DC2582B204004F8DD7 /* SF-Pro-Display-Bold.otf */; };
 		52AE57DF2582B204004F8DD7 /* SF-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52AE57DD2582B204004F8DD7 /* SF-Pro.ttf */; };
 		52E9AEE82582BAA800C86A26 /* SF-Pro-Text-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 52E9AEE72582BAA800C86A26 /* SF-Pro-Text-Regular.otf */; };
+		52E9AEF12582BFF000C86A26 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 52E9AEF02582BFF000C86A26 /* Alamofire */; };
+		52E9AEF72582C01500C86A26 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 52E9AEF62582C01500C86A26 /* SwiftyJSON */; };
+		52E9AEFD2582C04700C86A26 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 52E9AEFC2582C04700C86A26 /* IQKeyboardManagerSwift */; };
+		52E9AF032582C06B00C86A26 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 52E9AF022582C06B00C86A26 /* SDWebImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +78,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52E9AEF72582C01500C86A26 /* SwiftyJSON in Frameworks */,
+				52E9AEF12582BFF000C86A26 /* Alamofire in Frameworks */,
+				52E9AF032582C06B00C86A26 /* SDWebImage in Frameworks */,
+				52E9AEFD2582C04700C86A26 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,6 +227,12 @@
 			dependencies = (
 			);
 			name = GitHubRepofinder;
+			packageProductDependencies = (
+				52E9AEF02582BFF000C86A26 /* Alamofire */,
+				52E9AEF62582C01500C86A26 /* SwiftyJSON */,
+				52E9AEFC2582C04700C86A26 /* IQKeyboardManagerSwift */,
+				52E9AF022582C06B00C86A26 /* SDWebImage */,
+			);
 			productName = GitHubRepofinder;
 			productReference = 52348DE3258241C2006DBE87 /* GitHubRepofinder.app */;
 			productType = "com.apple.product-type.application";
@@ -290,6 +304,12 @@
 				Base,
 			);
 			mainGroup = 52348DDA258241C2006DBE87;
+			packageReferences = (
+				52E9AEEF2582BFF000C86A26 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				52E9AEF52582C01500C86A26 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				52E9AEFB2582C04700C86A26 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				52E9AF012582C06B00C86A26 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = 52348DE4258241C2006DBE87 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -679,6 +699,64 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		52E9AEEF2582BFF000C86A26 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.0;
+			};
+		};
+		52E9AEF52582C01500C86A26 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		52E9AEFB2582C04700C86A26 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.5.6;
+			};
+		};
+		52E9AF012582C06B00C86A26 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		52E9AEF02582BFF000C86A26 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 52E9AEEF2582BFF000C86A26 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		52E9AEF62582C01500C86A26 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 52E9AEF52582C01500C86A26 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+		52E9AEFC2582C04700C86A26 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 52E9AEFB2582C04700C86A26 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+		52E9AF022582C06B00C86A26 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 52E9AF012582C06B00C86A26 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 52348DDB258241C2006DBE87 /* Project object */;
 }
