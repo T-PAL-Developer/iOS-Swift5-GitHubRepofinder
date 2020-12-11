@@ -137,6 +137,7 @@ class MainViewController: UIViewController {
     
     func viewConfiguration() {
         
+        self.view.backgroundColor = UIColor.white
         ///set navbar
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.black]
         navigationController?.navigationBar.largeTitleTextAttributes = textAttributes
@@ -147,12 +148,15 @@ class MainViewController: UIViewController {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = true
+        /// set status bar
         navigationController?.navigationBar.barStyle = .default
         setNeedsStatusBarAppearanceUpdate()
         ///set serach bar
+       
         if #available(iOS 13.0, *) {
             searchBar.searchTextField.leftView?.tintColor = .gray
         }
+       
         if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
             textfield.textColor = UIColor.black
             textfield.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.9607843137, blue: 0.9607843137, alpha: 1)

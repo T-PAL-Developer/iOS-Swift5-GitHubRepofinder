@@ -32,6 +32,7 @@ class DetailsViewController: UIViewController {
     
     func viewConfiguration() {
         
+        self.view.backgroundColor = UIColor.white
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.black]
         navigationController?.navigationBar.largeTitleTextAttributes = textAttributes
         navigationController?.navigationBar.titleTextAttributes = textAttributes
