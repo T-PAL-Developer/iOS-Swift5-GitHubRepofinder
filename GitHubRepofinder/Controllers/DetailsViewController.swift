@@ -17,6 +17,8 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var labelRepoTitle: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imageRepo: UIImageView!
+    @IBOutlet weak var buttonViewOnline: UIButton!
+    @IBOutlet weak var buttonShareRepo: UIButton!
     
     var dataArray: [GitHubDataModel] = [GitHubDataModel]()
     var commitsCount = 3
@@ -77,7 +79,7 @@ class DetailsViewController: UIViewController {
         
         for x in 0..<dataArray.count {
             print(x, "=", dataArray[x].commitAuthor!) }
-        
+        self.tableView.reloadData()
         
     }
     
@@ -101,6 +103,8 @@ class DetailsViewController: UIViewController {
         backButton.title = "Back"
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
         self.navigationController!.navigationBar.barStyle = .black
+        buttonShareRepo.layer.cornerRadius = buttonShareRepo.frame.size.height / 5
+        buttonViewOnline.layer.cornerRadius = buttonViewOnline.frame.size.height / 5
         
         ///set labels & image from gitHubDataArray
         labelAuthorName.text = GlobalVariables.githubDataArray[GlobalVariables.cellIndex].repoOwnerName
@@ -145,10 +149,14 @@ extension DetailsViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.cellNibNameDetails, for: indexPath) as! MainCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.cellNibNameDetails, for: indexPath) as! DetailsCell
         
-        cell.labelTitle.text = dataArray[indexPath.row].repoName
-        cell.labelStars.text = dataArray[indexPath.row].numberOfStars
+        cell.labelCommitAuthor.text = dataArray[indexPath.row].commitAuthor
+        cell.labelCommitMessage.text = dataArray[indexPath.row].commitMessage
+        cell.labelEmailAuthor.text = dataArray[indexPath.row].commitAuthorEmail
+        cell.labelNumber.text = "\(indexPath.row + 1)"
+//        cell.labelTitle.text = dataArray[indexPath.row].repoName
+//        cell.labelStars.text = dataArray[indexPath.row].numberOfStars
         
         return cell
     }

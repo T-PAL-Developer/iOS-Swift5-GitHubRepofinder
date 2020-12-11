@@ -149,14 +149,14 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Vp1-v9-TOV">
-                                <rect key="frame" x="36" y="399" width="307" height="285"/>
+                                <rect key="frame" x="0.0" y="399" width="375" height="285"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailsCell" id="VUz-Oe-Dwi">
-                                        <rect key="frame" x="0.0" y="28" width="307" height="43.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VUz-Oe-Dwi" id="ZUq-hH-ZvE">
-                                            <rect key="frame" x="0.0" y="0.0" width="307" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -225,18 +225,20 @@
                             <constraint firstAttribute="trailingMargin" secondItem="HIn-ju-wn3" secondAttribute="trailing" constant="16" id="3LO-4r-VWv"/>
                             <constraint firstItem="HIn-ju-wn3" firstAttribute="leading" secondItem="YQ3-SS-thk" secondAttribute="leadingMargin" constant="16" id="8pF-VR-HIF"/>
                             <constraint firstItem="wfs-Gq-L3E" firstAttribute="leading" secondItem="YQ3-SS-thk" secondAttribute="leadingMargin" constant="16" id="IQf-hF-ZX9"/>
+                            <constraint firstItem="Vp1-v9-TOV" firstAttribute="leading" secondItem="YQ3-SS-thk" secondAttribute="leading" id="ITr-GG-OHZ"/>
                             <constraint firstItem="UXw-uJ-wfw" firstAttribute="top" secondItem="YQ3-SS-thk" secondAttribute="top" id="Jbd-xM-IqU"/>
                             <constraint firstItem="Vp1-v9-TOV" firstAttribute="top" secondItem="HIn-ju-wn3" secondAttribute="bottom" id="LAo-3A-5Nr"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Vp1-v9-TOV" secondAttribute="trailing" constant="16" id="Ruc-r1-xfz"/>
+                            <constraint firstAttribute="trailing" secondItem="Vp1-v9-TOV" secondAttribute="trailing" id="VmA-Gx-TiC"/>
                             <constraint firstAttribute="bottomMargin" secondItem="wfs-Gq-L3E" secondAttribute="bottom" constant="44" id="deM-rQ-ila"/>
                             <constraint firstAttribute="trailing" secondItem="UXw-uJ-wfw" secondAttribute="trailing" id="l7A-5j-DN6"/>
                             <constraint firstItem="UXw-uJ-wfw" firstAttribute="leading" secondItem="YQ3-SS-thk" secondAttribute="leading" id="nsc-qR-XAw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wfs-Gq-L3E" secondAttribute="trailing" constant="16" id="tdi-q5-NMJ"/>
-                            <constraint firstItem="Vp1-v9-TOV" firstAttribute="leading" secondItem="YQ3-SS-thk" secondAttribute="leadingMargin" constant="20" id="vam-Xr-Myq"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="EsA-xN-WCX"/>
                     <connections>
+                        <outlet property="buttonShareRepo" destination="wfs-Gq-L3E" id="Gdf-Ag-gQm"/>
+                        <outlet property="buttonViewOnline" destination="9Kg-Wa-leW" id="QEs-x0-QVX"/>
                         <outlet property="imageRepo" destination="D6x-4m-0Bo" id="PeY-QU-oXM"/>
                         <outlet property="labelAuthorName" destination="Uj0-Os-Qjd" id="fTZ-L1-qEL"/>
                         <outlet property="labelRepoTitle" destination="gda-hY-d8S" id="an7-3R-4IE"/>
