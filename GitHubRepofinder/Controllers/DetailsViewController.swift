@@ -26,7 +26,7 @@ class DetailsViewController: UIViewController {
         
         getData()
         viewConfiguration()
-        
+        tableViewConfiguration()
     }
     
     
@@ -43,11 +43,11 @@ class DetailsViewController: UIViewController {
                 switch response.result {
                 case .success(let value):
                     let json = JSON(value)
-                    //print("JSON from server response: \(json)")
+        
                     self.updateData(json: json)
                     
-                    //print(json)
-                    print(response.request ?? "response reqest issue")
+                    //print("JSON from server response: \(json)")
+                    //print(response.request ?? "response reqest issue")
                     
                     break
                 case .failure(let error):
@@ -104,7 +104,7 @@ class DetailsViewController: UIViewController {
         
         ///set labels & image from gitHubDataArray
         labelAuthorName.text = GlobalVariables.githubDataArray[GlobalVariables.cellIndex].repoOwnerName
-        labelStarsNumber.text = GlobalVariables.githubDataArray[GlobalVariables.cellIndex].numberOfStars
+        labelStarsNumber.text = "Numbers of Stars (\(GlobalVariables.githubDataArray[GlobalVariables.cellIndex].numberOfStars!))"
         labelRepoTitle.text = GlobalVariables.githubDataArray[GlobalVariables.cellIndex].repoName
 
         if let icon = GlobalVariables.githubDataArray[GlobalVariables.cellIndex].pictureOwner {
@@ -121,8 +121,40 @@ class DetailsViewController: UIViewController {
         return .lightContent
     }
     
+    //MARK: - TableView Configuration
     
+    func tableViewConfiguration() {
+        tableView.dataSource = self
+        tableView.register(UINib(nibName: Constants.Cells.cellIndentifierDetails, bundle: nil), forCellReuseIdentifier: Constants.Cells.cellNibNameDetails)
+        self.tableView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    }
    
     
 }
 
+//MARK: - extension ViewController
+
+// tableView
+
+extension DetailsViewController: UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        tableView.keyboardDismissMode = .onDrag
+        return dataArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.cellNibNameDetails, for: indexPath) as! MainCell
+        
+        cell.labelTitle.text = dataArray[indexPath.row].repoName
+        cell.labelStars.text = dataArray[indexPath.row].numberOfStars
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    }
+    
+}

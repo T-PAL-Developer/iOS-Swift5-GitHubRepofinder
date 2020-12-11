@@ -14,6 +14,8 @@ struct Constants {
     struct Cells {
         static let cellIndentifierMain = "MainCell"
         static let cellNibNameMain = "MainCellNib"
+        static let cellIndentifierDetails = "DetailsCell"
+        static let cellNibNameDetails = "DetailsCellNib"
     }
     
     struct Fonts {

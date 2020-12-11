@@ -10,6 +10,7 @@ import Alamofire
 import SwiftyJSON
 import SDWebImage
 
+/// global variables to share with DetailsViewController
 struct GlobalVariables {
     static var githubDataArray: [GitHubDataModel] = [GitHubDataModel]()
     static var cellIndex = 0
@@ -194,22 +195,6 @@ class MainViewController: UIViewController {
         tableView.register(UINib(nibName: Constants.Cells.cellIndentifierMain, bundle: nil), forCellReuseIdentifier: Constants.Cells.cellNibNameMain)
         self.tableView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
     }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//
-//
-//        if segue.identifier == Constants.segueCell {
-//            let destinationVC = segue.destination as! DetailsViewController
-//
-//            if let indexPath = tableView.indexPathForSelectedRow {
-//
-//                /// send row number to DetailsViewController and use by JSON quert
-//                destinationVC.selectedCell = indexPath.row
-//                destinationVC.githubDataArrayFromSegue = githubDataArray
-//            }
-//        }
-//    }
-    
     
 }
 
