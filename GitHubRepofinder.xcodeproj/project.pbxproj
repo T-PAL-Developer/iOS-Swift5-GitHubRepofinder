@@ -156,8 +156,8 @@
 				5278FAFD2582902B000B2313 /* Views */,
 				5278FAFE2582903B000B2313 /* Controllers */,
 				5278FAFF25829045000B2313 /* Extensions */,
-				523C87DB2582E3E200A56998 /* Source */,
 				5278FB0025829055000B2313 /* Supporting Files */,
+				523C87DB2582E3E200A56998 /* Source */,
 			);
 			path = GitHubRepofinder;
 			sourceTree = "<group>";

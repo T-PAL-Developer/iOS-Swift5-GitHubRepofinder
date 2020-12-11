@@ -32,6 +32,16 @@ class DetailsViewController: UIViewController {
     }
     
     
+    @IBAction func buttonViewOnlinePressed(_ sender: Any) {
+        
+        if let url = URL(string: GlobalVariables.githubDataArray[GlobalVariables.cellIndex].repoURL!) {
+            UIApplication.shared.open(url)
+        }
+    }
+    
+    @IBAction func buttonSharePressed(_ sender: Any) {
+    }
+    
     
     //MARK: - Networking
     
