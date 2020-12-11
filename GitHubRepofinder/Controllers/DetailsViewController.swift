@@ -40,6 +40,11 @@ class DetailsViewController: UIViewController {
     }
     
     @IBAction func buttonSharePressed(_ sender: Any) {
+        
+        let items = [URL(string: GlobalVariables.githubDataArray[GlobalVariables.cellIndex].repoURL!)!]
+        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        present(ac, animated: true)
+        
     }
     
     

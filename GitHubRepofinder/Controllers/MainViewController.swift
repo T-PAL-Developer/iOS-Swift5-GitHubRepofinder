@@ -158,7 +158,6 @@ class MainViewController: UIViewController {
         navigationController?.navigationBar.barStyle = .default
         setNeedsStatusBarAppearanceUpdate()
         ///set serach bar
-       
         if #available(iOS 13.0, *) {
             searchBar.searchTextField.leftView?.tintColor = .gray
         }
@@ -171,8 +170,9 @@ class MainViewController: UIViewController {
         }
         /// set label
         labelRepositories.font = UIFont(name: Constants.Fonts.fontSFDisplayBold, size: 22)
-        labelRepositories.addTextSpacing(spacing: 0.35)
         labelRepositories.textColor = UIColor.black
+        /// sample how to use extenstion for letters spacing( i have used only here as a sample )
+        labelRepositories.addTextSpacing(spacing: 0.35)
         ///set table view
         self.tableView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
     }
