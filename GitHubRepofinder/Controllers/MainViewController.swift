@@ -10,8 +10,10 @@ import Alamofire
 import SwiftyJSON
 import SDWebImage
 
-var githubDataArray: [GitHubDataModel] = [GitHubDataModel]()
-    var cellIndex = 0
+struct GlobalVariables {
+    static var githubDataArray: [GitHubDataModel] = [GitHubDataModel]()
+    static var cellIndex = 0
+}
 
 class MainViewController: UIViewController {
     
@@ -19,7 +21,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var labelRepositories: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    
+    //var githubDataArray: [GitHubDataModel] = [GitHubDataModel]()
+    //var cellIndex = 0
     
     let GITHUB_URL = "https://api.github.com/search/repositories"
     
@@ -72,7 +75,7 @@ class MainViewController: UIViewController {
     
     func updateData(json: JSON){
         
-        githubDataArray.removeAll()
+        GlobalVariables.githubDataArray.removeAll()
         
         if json["incomplete_results"].bool == false {
             
@@ -91,7 +94,7 @@ class MainViewController: UIViewController {
                 item.repoCommitsPath = "https://api.github.com/repos/\(index["owner"]["login"].stringValue)/\(index["name"].stringValue)/commits"
                 
                 //print(item.repoCommitsPath)
-                githubDataArray.append(item)
+                GlobalVariables.githubDataArray.append(item)
                 
             }
             
@@ -104,8 +107,8 @@ class MainViewController: UIViewController {
             
             
             updateUIWithData()
-            for x in 0..<githubDataArray.count {
-                print(x, "=", githubDataArray[x].repoName!) }
+            for x in 0..<GlobalVariables.githubDataArray.count {
+                print(x, "=", GlobalVariables.githubDataArray[x].repoName!) }
             
         }
         else if json["incomplete_results"].bool == true {
@@ -216,7 +219,7 @@ class MainViewController: UIViewController {
 // tableView
 extension MainViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        cellIndex = indexPath.row
+        GlobalVariables.cellIndex = indexPath.row
         performSegue(withIdentifier: Constants.segueCell, sender: self)
         print(indexPath.row)
     }
@@ -225,7 +228,7 @@ extension MainViewController: UITableViewDelegate{
 extension MainViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         tableView.keyboardDismissMode = .onDrag
-        return githubDataArray.count
+        return GlobalVariables.githubDataArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -233,10 +236,10 @@ extension MainViewController: UITableViewDataSource{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.cellNibNameMain, for: indexPath) as! MainCell
         
-        cell.labelTitle.text = githubDataArray[indexPath.row].repoName
-        cell.labelStars.text = githubDataArray[indexPath.row].numberOfStars
+        cell.labelTitle.text = GlobalVariables.githubDataArray[indexPath.row].repoName
+        cell.labelStars.text = GlobalVariables.githubDataArray[indexPath.row].numberOfStars
         
-        if let icon = githubDataArray[indexPath.row].pictureOwner {
+        if let icon = GlobalVariables.githubDataArray[indexPath.row].pictureOwner {
             
             let url = URL(string: icon)
             cell.imageAvatar.sd_setImage(with: url) { (downloadedImage, downloadedExeption, cacheType, downloadURL) in

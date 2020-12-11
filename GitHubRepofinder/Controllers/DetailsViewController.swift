@@ -18,26 +18,8 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imageRepo: UIImageView!
     
-    
     var dataArray: [GitHubDataModel] = [GitHubDataModel]()
     var commitsCount = 3
-    
-    //    var githubDataArrayFromSegue: [GitHubDataModel] = [GitHubDataModel]()
-    //    var cellIndex = 0
-    //
-    //    var selectedCell: Int? {
-    //            didSet{
-    //                cellIndex = selectedCell!
-    //            }
-    //        }
-    //
-    //    var githubDataArray: [GitHubDataModel]? {
-    //            didSet{
-    //      githubDataArray = githubDataArray!
-    //            }
-    //        }
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +36,7 @@ class DetailsViewController: UIViewController {
     
     func getData(){
         
-        if let url = githubDataArray[cellIndex].repoCommitsPath {
+        if let url = GlobalVariables.githubDataArray[GlobalVariables.cellIndex].repoCommitsPath {
             
             AF.request(url).responseJSON{
                 response in
@@ -121,11 +103,11 @@ class DetailsViewController: UIViewController {
         self.navigationController!.navigationBar.barStyle = .black
         
         ///set labels & image from gitHubDataArray
-        labelAuthorName.text = githubDataArray[cellIndex].repoOwnerName
-        labelStarsNumber.text = githubDataArray[cellIndex].numberOfStars
-        labelRepoTitle.text = githubDataArray[cellIndex].repoName
+        labelAuthorName.text = GlobalVariables.githubDataArray[GlobalVariables.cellIndex].repoOwnerName
+        labelStarsNumber.text = GlobalVariables.githubDataArray[GlobalVariables.cellIndex].numberOfStars
+        labelRepoTitle.text = GlobalVariables.githubDataArray[GlobalVariables.cellIndex].repoName
 
-        if let icon = githubDataArray[cellIndex].pictureOwner {
+        if let icon = GlobalVariables.githubDataArray[GlobalVariables.cellIndex].pictureOwner {
             
             let url = URL(string: icon)
             imageRepo.sd_setImage(with: url) { (downloadedImage, downloadedExeption, cacheType, downloadURL) in
