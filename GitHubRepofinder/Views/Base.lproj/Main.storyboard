@@ -112,7 +112,7 @@
                                             <constraint firstAttribute="height" constant="13" id="oY8-di-ied"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uj0-Os-Qjd">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repo Author Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uj0-Os-Qjd">
                                         <rect key="frame" x="20" y="183" width="335" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="GqR-aw-200"/>
@@ -166,19 +166,19 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HIn-ju-wn3">
                                 <rect key="frame" x="32" y="263" width="311" height="136"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yO7-bM-4LX">
-                                        <rect key="frame" x="0.0" y="93" width="69.666666666666671" height="33"/>
-                                        <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="28"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Commits History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yO7-bM-4LX">
+                                        <rect key="frame" x="0.0" y="99.666666666666686" width="311" height="26.333333333333329"/>
+                                        <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="22"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gda-hY-d8S">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repo Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gda-hY-d8S">
                                         <rect key="frame" x="4" y="21" width="173" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="mE3-7M-4RX"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="SFProText-Semibold" family="SF Pro Text" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Kg-Wa-leW">
@@ -192,11 +192,12 @@
                                         <state key="normal" title="VIEW ONLINE"/>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="yO7-bM-4LX" firstAttribute="leading" secondItem="HIn-ju-wn3" secondAttribute="leading" id="0bW-Mw-kfh"/>
                                     <constraint firstItem="9Kg-Wa-leW" firstAttribute="leading" secondItem="gda-hY-d8S" secondAttribute="trailing" constant="16" id="Jot-8V-Btj"/>
                                     <constraint firstItem="gda-hY-d8S" firstAttribute="top" secondItem="HIn-ju-wn3" secondAttribute="top" constant="21" id="RwJ-N7-jNc"/>
+                                    <constraint firstAttribute="trailing" secondItem="yO7-bM-4LX" secondAttribute="trailing" id="TFN-rW-gU2"/>
                                     <constraint firstAttribute="bottom" secondItem="yO7-bM-4LX" secondAttribute="bottom" constant="10" id="TNc-aw-gX3"/>
                                     <constraint firstAttribute="height" constant="136" id="jDo-M6-gej"/>
                                     <constraint firstItem="9Kg-Wa-leW" firstAttribute="top" secondItem="HIn-ju-wn3" secondAttribute="top" constant="16" id="qNY-IC-Sju"/>
@@ -224,6 +225,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="EsA-xN-WCX"/>
+                    <connections>
+                        <outlet property="imageRepo" destination="D6x-4m-0Bo" id="PeY-QU-oXM"/>
+                        <outlet property="labelAuthorName" destination="Uj0-Os-Qjd" id="fTZ-L1-qEL"/>
+                        <outlet property="labelRepoTitle" destination="gda-hY-d8S" id="an7-3R-4IE"/>
+                        <outlet property="labelStarsNumber" destination="jpZ-0D-Yan" id="sdC-7v-kgf"/>
+                        <outlet property="tableView" destination="Vp1-v9-TOV" id="bz6-mg-AAT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QAj-cB-VRP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

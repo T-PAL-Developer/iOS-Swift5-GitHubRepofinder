@@ -10,14 +10,16 @@ import Alamofire
 import SwiftyJSON
 import SDWebImage
 
+var githubDataArray: [GitHubDataModel] = [GitHubDataModel]()
+    var cellIndex = 0
+
 class MainViewController: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var labelRepositories: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    var githubDataArray: [GitHubDataModel] = [GitHubDataModel]()
-    var cellIndex = 0
+    
     
     let GITHUB_URL = "https://api.github.com/search/repositories"
     
@@ -190,7 +192,20 @@ class MainViewController: UIViewController {
         self.tableView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
     }
     
-    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//
+//        if segue.identifier == Constants.segueCell {
+//            let destinationVC = segue.destination as! DetailsViewController
+//
+//            if let indexPath = tableView.indexPathForSelectedRow {
+//
+//                /// send row number to DetailsViewController and use by JSON quert
+//                destinationVC.selectedCell = indexPath.row
+//                destinationVC.githubDataArrayFromSegue = githubDataArray
+//            }
+//        }
+//    }
     
     
 }
@@ -199,6 +214,14 @@ class MainViewController: UIViewController {
 //MARK: - extension ViewController
 
 // tableView
+extension MainViewController: UITableViewDelegate{
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        cellIndex = indexPath.row
+        performSegue(withIdentifier: Constants.segueCell, sender: self)
+        print(indexPath.row)
+    }
+}
+
 extension MainViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         tableView.keyboardDismissMode = .onDrag
@@ -230,13 +253,7 @@ extension MainViewController: UITableViewDataSource{
     
 }
 
-extension MainViewController: UITableViewDelegate{
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        cellIndex = indexPath.row
-        performSegue(withIdentifier: Constants.segueCell, sender: self)
-        print(indexPath.row)
-    }
-}
+
 
 // search bar
 extension MainViewController: UISearchBarDelegate {
