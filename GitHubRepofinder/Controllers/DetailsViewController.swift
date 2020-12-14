@@ -92,6 +92,7 @@ class DetailsViewController: UIViewController {
         
         commitsArray.removeAll()
         
+        
         commitsCount = json.count
         if commitsCount > 3 {
             commitsCount = 3

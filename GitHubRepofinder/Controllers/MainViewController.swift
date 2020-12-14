@@ -10,12 +10,6 @@ import Alamofire
 import SwiftyJSON
 import SDWebImage
 
-///Struct GlobalVariables replace by override func prepare() for segue
-//struct GlobalVariables {
-//    static var githubDataArray: [GitHubDataModel] = [GitHubDataModel]()
-//    static var cellIndex = 0
-//}
-
 class MainViewController: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
