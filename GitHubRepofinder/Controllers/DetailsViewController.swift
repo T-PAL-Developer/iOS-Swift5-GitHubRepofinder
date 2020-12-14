@@ -11,7 +11,6 @@ import SwiftyJSON
 
 class DetailsViewController: UIViewController {
     
-    
     @IBOutlet weak var labelAuthorName: UILabel!
     @IBOutlet weak var labelStarsNumber: UILabel!
     @IBOutlet weak var labelRepoTitle: UILabel!
@@ -21,12 +20,22 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var buttonShareRepo: UIButton!
     
     var dataArray: [GitHubDataModel] = [GitHubDataModel]()
-    var commitsCount = 3
+    var commitsArray: [GitHubDataModel] = [GitHubDataModel]()
+    var commitsCount = 0
+    var cellIndex: Int = 0
+    var cellIndexFromMainVC: Int?
+    var dataArrayFromMainVC: [GitHubDataModel]? {
+        didSet {
+            dataArray = dataArrayFromMainVC!
+            cellIndex = cellIndexFromMainVC!
+            getData()
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getData()
         viewConfiguration()
         tableViewConfiguration()
     }
@@ -34,14 +43,14 @@ class DetailsViewController: UIViewController {
     
     @IBAction func buttonViewOnlinePressed(_ sender: Any) {
         
-        if let url = URL(string: GlobalVariables.githubDataArray[GlobalVariables.cellIndex].repoURL!) {
+        if let url = URL(string: dataArray[cellIndex].repoURL!) {
             UIApplication.shared.open(url)
         }
     }
     
     @IBAction func buttonSharePressed(_ sender: Any) {
         
-        let items = [URL(string: GlobalVariables.githubDataArray[GlobalVariables.cellIndex].repoURL!)!]
+        let items = [URL(string: dataArray[cellIndex].repoURL!)!]
         let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
         present(ac, animated: true)
         
@@ -53,7 +62,7 @@ class DetailsViewController: UIViewController {
     
     func getData(){
         
-        if let url = GlobalVariables.githubDataArray[GlobalVariables.cellIndex].repoCommitsPath {
+        if let url = dataArray[cellIndex].repoCommitsPath {
             
             AF.request(url).responseJSON{
                 response in
@@ -81,7 +90,12 @@ class DetailsViewController: UIViewController {
     
     func updateData(json: JSON){
         
-        dataArray.removeAll()
+        commitsArray.removeAll()
+        
+        commitsCount = json.count
+        if commitsCount > 3 {
+            commitsCount = 3
+        }
         
         for i in 0..<commitsCount {
             let item = GitHubDataModel()
@@ -89,11 +103,9 @@ class DetailsViewController: UIViewController {
             item.commitAuthorEmail = json[i]["commit"]["author"]["email"].stringValue
             item.commitMessage = json[i]["commit"]["message"].stringValue
             
-            dataArray.append(item)
+            commitsArray.append(item)
         }
         
-        for x in 0..<dataArray.count {
-            print(x, "=", dataArray[x].commitAuthor!) }
         self.tableView.reloadData()
         
     }
@@ -121,12 +133,12 @@ class DetailsViewController: UIViewController {
         buttonShareRepo.layer.cornerRadius = buttonShareRepo.frame.size.height / 5
         buttonViewOnline.layer.cornerRadius = buttonViewOnline.frame.size.height / 5
         
-        ///set labels & image from gitHubDataArray
-        labelAuthorName.text = GlobalVariables.githubDataArray[GlobalVariables.cellIndex].repoOwnerName
-        labelStarsNumber.text = "Numbers of Stars (\(GlobalVariables.githubDataArray[GlobalVariables.cellIndex].numberOfStars!))"
-        labelRepoTitle.text = GlobalVariables.githubDataArray[GlobalVariables.cellIndex].repoName
+        ///set labels & image from dataArray
+        labelAuthorName.text = dataArray[cellIndex].repoOwnerName
+        labelStarsNumber.text = "Numbers of Stars (\(dataArray[cellIndex].numberOfStars!))"
+        labelRepoTitle.text = dataArray[cellIndex].repoName
 
-        if let icon = GlobalVariables.githubDataArray[GlobalVariables.cellIndex].pictureOwner {
+        if let icon = dataArray[cellIndex].pictureOwner {
             
             let url = URL(string: icon)
             imageRepo.sd_setImage(with: url) { (downloadedImage, downloadedExeption, cacheType, downloadURL) in
@@ -158,7 +170,7 @@ class DetailsViewController: UIViewController {
 extension DetailsViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         tableView.keyboardDismissMode = .onDrag
-        return dataArray.count
+        return commitsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -166,12 +178,10 @@ extension DetailsViewController: UITableViewDataSource{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.cellNibNameDetails, for: indexPath) as! DetailsCell
         
-        cell.labelCommitAuthor.text = dataArray[indexPath.row].commitAuthor
-        cell.labelCommitMessage.text = dataArray[indexPath.row].commitMessage
-        cell.labelEmailAuthor.text = dataArray[indexPath.row].commitAuthorEmail
+        cell.labelCommitAuthor.text = commitsArray[indexPath.row].commitAuthor
+        cell.labelCommitMessage.text = commitsArray[indexPath.row].commitMessage
+        cell.labelEmailAuthor.text = commitsArray[indexPath.row].commitAuthorEmail
         cell.labelNumber.text = "\(indexPath.row + 1)"
-//        cell.labelTitle.text = dataArray[indexPath.row].repoName
-//        cell.labelStars.text = dataArray[indexPath.row].numberOfStars
         
         return cell
     }

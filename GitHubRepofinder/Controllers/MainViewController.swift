@@ -10,11 +10,11 @@ import Alamofire
 import SwiftyJSON
 import SDWebImage
 
-/// global variables to share with DetailsViewController
-struct GlobalVariables {
-    static var githubDataArray: [GitHubDataModel] = [GitHubDataModel]()
-    static var cellIndex = 0
-}
+///Struct GlobalVariables replace by override func prepare() for segue
+//struct GlobalVariables {
+//    static var githubDataArray: [GitHubDataModel] = [GitHubDataModel]()
+//    static var cellIndex = 0
+//}
 
 class MainViewController: UIViewController {
     
@@ -22,10 +22,10 @@ class MainViewController: UIViewController {
     @IBOutlet weak var labelRepositories: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    //var githubDataArray: [GitHubDataModel] = [GitHubDataModel]()
-    //var cellIndex = 0
+    var githubDataArray: [GitHubDataModel] = [GitHubDataModel]()
     
     let GITHUB_URL = "https://api.github.com/search/repositories"
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,7 +76,7 @@ class MainViewController: UIViewController {
     
     func updateData(json: JSON){
         
-        GlobalVariables.githubDataArray.removeAll()
+        githubDataArray.removeAll()
         
         if json["incomplete_results"].bool == false {
             
@@ -95,10 +95,8 @@ class MainViewController: UIViewController {
                 item.repoCommitsPath = "https://api.github.com/repos/\(index["owner"]["login"].stringValue)/\(index["name"].stringValue)/commits"
                 
                 //print(item.repoCommitsPath)
-                GlobalVariables.githubDataArray.append(item)
-                
+                githubDataArray.append(item)
             }
-            
             
             if json["total_count"].int == 0 {
                 labelRepositories.text = "0 results"
@@ -108,8 +106,8 @@ class MainViewController: UIViewController {
             
             
             updateUIWithData()
-            for x in 0..<GlobalVariables.githubDataArray.count {
-                print(x, "=", GlobalVariables.githubDataArray[x].repoName!) }
+//            for x in 0..<githubDataArray.count {
+//                print(x, "=", githubDataArray[x].repoName!) }
             
         }
         else if json["incomplete_results"].bool == true {
@@ -196,6 +194,24 @@ class MainViewController: UIViewController {
         self.tableView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            
+            
+        if segue.identifier == Constants.segueCell {
+                let destinationVC = segue.destination as! DetailsViewController
+                
+            
+                if let indexPath = tableView.indexPathForSelectedRow {
+                    
+                    destinationVC.cellIndexFromMainVC = indexPath.row
+                    destinationVC.dataArrayFromMainVC = githubDataArray
+            }
+        }
+    }
+    
+    
+    
+    
 }
 
 
@@ -204,8 +220,9 @@ class MainViewController: UIViewController {
 // tableView
 extension MainViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        GlobalVariables.cellIndex = indexPath.row
+        //GlobalVariables.cellIndex = indexPath.row
         performSegue(withIdentifier: Constants.segueCell, sender: self)
+        
         print(indexPath.row)
     }
 }
@@ -213,7 +230,7 @@ extension MainViewController: UITableViewDelegate{
 extension MainViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         tableView.keyboardDismissMode = .onDrag
-        return GlobalVariables.githubDataArray.count
+        return githubDataArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -221,10 +238,10 @@ extension MainViewController: UITableViewDataSource{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.cellNibNameMain, for: indexPath) as! MainCell
         
-        cell.labelTitle.text = GlobalVariables.githubDataArray[indexPath.row].repoName
-        cell.labelStars.text = GlobalVariables.githubDataArray[indexPath.row].numberOfStars
+        cell.labelTitle.text = githubDataArray[indexPath.row].repoName
+        cell.labelStars.text = githubDataArray[indexPath.row].numberOfStars
         
-        if let icon = GlobalVariables.githubDataArray[indexPath.row].pictureOwner {
+        if let icon = githubDataArray[indexPath.row].pictureOwner {
             
             let url = URL(string: icon)
             cell.imageAvatar.sd_setImage(with: url) { (downloadedImage, downloadedExeption, cacheType, downloadURL) in
